@@ -1,0 +1,64 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Traffic System</title>  
+    <style>  
+        #f {  
+            width: 100px;  
+            height: 500px;  
+            background-color: black;  
+            display: flex;  
+            justify-content: center;  
+            flex-direction: column;  
+            align-content: space-between;  
+        }  
+        .c {  
+            height: 90px;  
+            width: 90px;  
+            border-radius: 50%;  
+            background-color: aliceblue;  
+            color: black;  
+            display: flex;  
+            justify-content: center;  
+            align-items: center;  
+            font-size: 30px;  
+            font-family: monospace;  
+        }  
+    </style>  
+</head>  
+<body>  
+    <div id="f">  
+        <div class="c" id="g">go</div>  
+        <div class="c" id="o"></div>  
+        <div class="c" id="r">stp</div>  
+    </div>  
+    <script>  
+        const r = document.getElementById("r");  
+        const g = document.getElementById("g");  
+        const o = document.getElementById("o");  
+        let countdown = 3; // Countdown timer starting at 3  
+
+        function start() {  
+            g.style.backgroundColor = "green"; // Set to green for "go"  
+            g.innerText = "go";  
+
+            setTimeout(() => {  
+                // Change to countdown  
+                g.style.backgroundColor = "aliceblue"; // Reset background  
+                g.innerText = countdown; // Show countdown  
+                countdown--; // Decrease countdown  
+
+                if (countdown < 0) {  
+                    countdown = 3; // Reset countdown after reaching 0  
+                }  
+
+                start(); // Call the function again  
+            }, 1000); // Change state every second  
+        }  
+
+        start(); // Start the traffic light sequence  
+    </script>  
+</body>  
+</html>
